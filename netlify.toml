@@ -1,0 +1,6 @@
+[build]
+  publish = "public"  # pasta onde seus arquivos estão localizados
+  command = "echo 'Skipping build step'"
+
+[functions]
+  directory = "functions"

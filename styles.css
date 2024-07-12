@@ -1,0 +1,287 @@
+body {
+    font-family: "Segoe UI Webfont", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Alterado para branco */
+}
+
+header {
+    background-color: #086ccc; /* Alterado para azul mais escuro */
+    color: #fff;
+    height: 48px; /* Ajustado para 48px */
+    padding: 0 10px; /* Ajustado para reduzir a altura do cabeçalho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img {
+    width: 32px;
+    height: 32px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    justify-content: center;
+    padding: 0 10px;
+    position: relative;
+    font-family: "Segoe UI Semibold", sans-serif; /* Fonte Segoe UI Semibold para Conta da Microsoft */
+}
+
+.nav-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-item .separator {
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.nav-item:first-child .separator {
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.nav-item.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    color: #000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 48px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin: 0 5px;
+}
+
+.help-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.help-icon .help-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.help-icon .ms-Icon--Help {
+    font-size: 16px;
+    color: #fff;
+}
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+}
+
+main {
+    width: 1423px; /* Ajustar a largura conforme necessário */
+    margin-top: 1px;
+    margin-right: 40px;
+    margin-left: 1px;
+    margin-bottom: 40px;
+    padding: 20px;
+    position: relative;
+}
+
+.section-body.container {
+    width: 1280px;
+    height: 557px;
+    max-width: 100%;
+    text-align: relative;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 60px;
+    padding-right:20px;
+    padding-bottom:20px;
+}
+
+.text-subheader {
+    font-family: "Segoe UI Webfont", sans-serif;
+    font-size: 34px;
+    font-weight: 20;
+    margin-top: 1px;
+    margin-bottom: 20px;
+}
+
+.text-block-body {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+input[type="password"] {
+    width: 390px;
+    height: 32px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 5px;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input {
+    margin-right: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-start; /* Ajustado para alinhar à esquerda */
+    margin-top: 20px;
+}
+
+.buttons .save-btn, .buttons .cancel-btn {
+    background-color: #086ccc; /* Alterado para azul mais escuro */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.buttons .cancel-btn {
+    background-color: #ccc;
+    color: #000;
+}
+
+footer {
+    background-color: #f3f3f3;
+    padding: 20px 0; /* Ajustado para 72px de altura */
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.footer-item {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    color: #666; /* Alterado para cinza escuro */
+}
+
+.footer-item a {
+    color: #666; /* Alterado para cinza escuro */
+    text-decoration: none;
+}
+
+.globe-img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+.simbolo-img {
+    width: 40px;
+    height: 33px;
+}
+
+.special-font {
+    font-family: "Segoe UI Semibold", sans-serif;
+}
+.success-title {
+    font-family: "Segoe UI Semibold", sans-serif;
+    font-size: 34px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    font-family: "Segoe UI Semibold", sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.redirect-message {
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.redirect-button {
+    background-color: #086ccc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
